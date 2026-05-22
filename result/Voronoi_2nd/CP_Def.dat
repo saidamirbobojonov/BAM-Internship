@@ -1,0 +1,505 @@
+/com ***************************************
+/com CP Equation for Voronoi RVE 1224 G with Cohesive elements
+/com Generated on 2024-08-27 11:46:47 with Python
+/com ***************************************
+CP, next, all, 41, 9732 
+CP, next, all, 42, 9733 
+CP, next, all, 45, 9736, 11904 
+CP, next, all, 47, 9738, 10614 
+CP, next, all, 48, 9739, 10615 
+CP, next, all, 51, 9820 
+CP, next, all, 54, 9823, 12493 
+CP, next, all, 56, 9825 
+CP, next, all, 59, 9828, 10618 
+CP, next, all, 60, 9829, 10361 
+CP, next, all, 97, 10362 
+CP, next, all, 103, 10368, 10620 
+CP, next, all, 106, 10498, 11381 
+CP, next, all, 107, 10499 
+CP, next, all, 109, 10501, 11018 
+CP, next, all, 110, 10502 
+CP, next, all, 111, 10503, 11564 
+CP, next, all, 117, 10623, 11384 
+CP, next, all, 119, 10625, 12813 
+CP, next, all, 120, 10626, 11385 
+CP, next, all, 142, 11022 
+CP, next, all, 143, 11023, 11387 
+CP, next, all, 167, 11566 
+CP, next, all, 170, 11569, 12496 
+CP, next, all, 182, 11909 
+CP, next, all, 214, 12817 
+CP, next, all, 257, 9744 
+CP, next, all, 266, 9835 
+CP, next, all, 267, 9836 
+CP, next, all, 268, 9837 
+CP, next, all, 269, 9838 
+CP, next, all, 334, 10377 
+CP, next, all, 335, 10378 
+CP, next, all, 346, 10511 
+CP, next, all, 347, 10512 
+CP, next, all, 348, 10513 
+CP, next, all, 353, 10638 
+CP, next, all, 354, 10639 
+CP, next, all, 355, 10640 
+CP, next, all, 356, 10641 
+CP, next, all, 385, 11038 
+CP, next, all, 386, 11039 
+CP, next, all, 419, 11573 
+CP, next, all, 420, 11574 
+CP, next, all, 456, 11917 
+CP, next, all, 501, 12825 
+CP, next, all, 1941, 9797 
+CP, next, all, 1953, 9805 
+CP, next, all, 1957, 9808 
+CP, next, all, 1962, 9813 
+CP, next, all, 1963, 9814 
+CP, next, all, 2045, 9890 
+CP, next, all, 2061, 9898 
+CP, next, all, 2092, 9908 
+CP, next, all, 2115, 9919 
+CP, next, all, 2124, 9922 
+CP, next, all, 2148, 9938 
+CP, next, all, 2150, 9939 
+CP, next, all, 2164, 9949 
+CP, next, all, 3128, 10425 
+CP, next, all, 3265, 10453 
+CP, next, all, 3322, 10468 
+CP, next, all, 3365, 10479 
+CP, next, all, 3405, 10529 
+CP, next, all, 3449, 10545 
+CP, next, all, 3526, 10580 
+CP, next, all, 3538, 10588 
+CP, next, all, 3542, 10591 
+CP, next, all, 3552, 10599 
+CP, next, all, 3557, 10604 
+CP, next, all, 3598, 10690 
+CP, next, all, 3622, 10699 
+CP, next, all, 3628, 10702 
+CP, next, all, 3740, 10738 
+CP, next, all, 3819, 10786 
+CP, next, all, 3820, 10787 
+CP, next, all, 3824, 10790 
+CP, next, all, 3830, 10793 
+CP, next, all, 3832, 10795 
+CP, next, all, 4160, 11059 
+CP, next, all, 4391, 11122 
+CP, next, all, 4455, 11138 
+CP, next, all, 4467, 11143 
+CP, next, all, 4964, 11406 
+CP, next, all, 4979, 11413 
+CP, next, all, 5282, 11606 
+CP, next, all, 5285, 11608 
+CP, next, all, 5313, 11612 
+CP, next, all, 5315, 11614 
+CP, next, all, 6294, 11936 
+CP, next, all, 6349, 11962 
+CP, next, all, 7016, 12501 
+CP, next, all, 7702, 12853 
+CP, next, all, 7785, 12863 
+CP, next, all, 62, 9956 
+CP, next, all, 63, 9957, 12443 
+CP, next, all, 64, 9958, 12742 
+CP, next, all, 77, 9971 
+CP, next, all, 81, 9975, 11624 
+CP, next, all, 172, 11633 
+CP, next, all, 173, 11634, 11803 
+CP, next, all, 176, 11805 
+CP, next, all, 177, 11806, 12747 
+CP, next, all, 178, 11807, 13247 
+CP, next, all, 206, 12447 
+CP, next, all, 207, 12448, 13086 
+CP, next, all, 213, 12751, 13087 
+CP, next, all, 217, 13088, 13188 
+CP, next, all, 219, 13132 
+CP, next, all, 220, 13133 
+CP, next, all, 221, 13134, 13289 
+CP, next, all, 223, 13189 
+CP, next, all, 224, 13190, 13248 
+CP, next, all, 225, 13249, 13290 
+CP, next, all, 292, 9984 
+CP, next, all, 293, 9985 
+CP, next, all, 294, 9986 
+CP, next, all, 295, 9987 
+CP, next, all, 296, 9988 
+CP, next, all, 436, 11650 
+CP, next, all, 437, 11651 
+CP, next, all, 438, 11652 
+CP, next, all, 445, 11816 
+CP, next, all, 446, 11817 
+CP, next, all, 447, 11818 
+CP, next, all, 481, 12452 
+CP, next, all, 482, 12453 
+CP, next, all, 496, 12756 
+CP, next, all, 511, 13091 
+CP, next, all, 519, 13138 
+CP, next, all, 520, 13139 
+CP, next, all, 530, 13195 
+CP, next, all, 531, 13196 
+CP, next, all, 534, 13253 
+CP, next, all, 2443, 10089 
+CP, next, all, 2616, 10138 
+CP, next, all, 2685, 10161 
+CP, next, all, 2793, 10202 
+CP, next, all, 2800, 10206 
+CP, next, all, 2805, 10210 
+CP, next, all, 2811, 10213 
+CP, next, all, 2816, 10217 
+CP, next, all, 2849, 10231 
+CP, next, all, 5667, 11715 
+CP, next, all, 5830, 11740 
+CP, next, all, 5838, 11743 
+CP, next, all, 6026, 11786 
+CP, next, all, 6031, 11788 
+CP, next, all, 6055, 11844 
+CP, next, all, 6200, 11887 
+CP, next, all, 6218, 11895 
+CP, next, all, 6225, 11897 
+CP, next, all, 6228, 11900 
+CP, next, all, 6229, 11901 
+CP, next, all, 6965, 12481 
+CP, next, all, 6969, 12484 
+CP, next, all, 6979, 12490 
+CP, next, all, 6981, 12491 
+CP, next, all, 7588, 12781 
+CP, next, all, 7611, 12790 
+CP, next, all, 7630, 12802 
+CP, next, all, 8465, 13118 
+CP, next, all, 8477, 13123 
+CP, next, all, 8486, 13128 
+CP, next, all, 8555, 13154 
+CP, next, all, 8558, 13156 
+CP, next, all, 8578, 13160 
+CP, next, all, 8605, 13174 
+CP, next, all, 8793, 13215 
+CP, next, all, 8805, 13223 
+CP, next, all, 8941, 13235 
+CP, next, all, 8952, 13240 
+CP, next, all, 9130, 13282 
+CP, next, all, 9146, 13285 
+CP, next, all, 9158, 13286 
+CP, next, all, 9226, 13305 
+CP, next, all, 65, 9959 
+CP, next, all, 68, 9962, 12503 
+CP, next, all, 78, 9972, 11621 
+CP, next, all, 82, 10245, 12958 
+CP, next, all, 85, 10248, 11906 
+CP, next, all, 86, 10249, 11907 
+CP, next, all, 88, 10251, 12506 
+CP, next, all, 91, 10254, 12808 
+CP, next, all, 92, 10255, 11414 
+CP, next, all, 93, 10256, 11415 
+CP, next, all, 141, 11021 
+CP, next, all, 145, 11025, 11417 
+CP, next, all, 146, 11026, 11418 
+CP, next, all, 163, 11428, 11630 
+CP, next, all, 164, 11429, 11631 
+CP, next, all, 175, 11636 
+CP, next, all, 183, 11910 
+CP, next, all, 216, 12964 
+CP, next, all, 286, 9980 
+CP, next, all, 289, 9981 
+CP, next, all, 290, 9982 
+CP, next, all, 291, 9983 
+CP, next, all, 311, 10259 
+CP, next, all, 312, 10260 
+CP, next, all, 313, 10261 
+CP, next, all, 382, 11035 
+CP, next, all, 383, 11036 
+CP, next, all, 384, 11037 
+CP, next, all, 404, 11436 
+CP, next, all, 405, 11437 
+CP, next, all, 406, 11438 
+CP, next, all, 407, 11439 
+CP, next, all, 430, 11648 
+CP, next, all, 431, 11649 
+CP, next, all, 454, 11915 
+CP, next, all, 455, 11916 
+CP, next, all, 500, 12824 
+CP, next, all, 508, 12968 
+CP, next, all, 2340, 10062 
+CP, next, all, 2448, 10090 
+CP, next, all, 2483, 10099 
+CP, next, all, 2738, 10180 
+CP, next, all, 2762, 10187 
+CP, next, all, 2855, 10236 
+CP, next, all, 2859, 10238 
+CP, next, all, 2914, 10302 
+CP, next, all, 2923, 10306 
+CP, next, all, 2962, 10327 
+CP, next, all, 2989, 10341 
+CP, next, all, 2992, 10343 
+CP, next, all, 2993, 10344 
+CP, next, all, 2995, 10346 
+CP, next, all, 2997, 10348 
+CP, next, all, 3000, 10350 
+CP, next, all, 3005, 10355 
+CP, next, all, 4232, 11074 
+CP, next, all, 4313, 11097 
+CP, next, all, 4323, 11101 
+CP, next, all, 4352, 11112 
+CP, next, all, 4439, 11128 
+CP, next, all, 4454, 11137 
+CP, next, all, 5047, 11500 
+CP, next, all, 5061, 11507 
+CP, next, all, 5065, 11509 
+CP, next, all, 5085, 11515 
+CP, next, all, 5110, 11527 
+CP, next, all, 5119, 11533 
+CP, next, all, 5137, 11547 
+CP, next, all, 5148, 11555 
+CP, next, all, 5557, 11705 
+CP, next, all, 5718, 11721 
+CP, next, all, 5908, 11758 
+CP, next, all, 6029, 11787 
+CP, next, all, 6307, 11942 
+CP, next, all, 6336, 11955 
+CP, next, all, 6346, 11960 
+CP, next, all, 6351, 11963 
+CP, next, all, 7051, 12547 
+CP, next, all, 7803, 12870 
+CP, next, all, 7808, 12872 
+CP, next, all, 8097, 12988 
+CP, next, all, 8117, 12994 
+CP, next, all, 3, 9290 
+CP, next, all, 4, 9291, 11965 
+CP, next, all, 5, 9292 
+CP, next, all, 6, 9293, 11561 
+CP, next, all, 7, 9294, 10797 
+CP, next, all, 8, 9295, 10798 
+CP, next, all, 52, 9821, 12252 
+CP, next, all, 53, 9822, 11970 
+CP, next, all, 57, 9826, 11971 
+CP, next, all, 58, 9827, 10360 
+CP, next, all, 99, 10364 
+CP, next, all, 101, 10366, 12696 
+CP, next, all, 125, 10807, 12575 
+CP, next, all, 127, 10809, 13130 
+CP, next, all, 128, 10810, 11972 
+CP, next, all, 133, 10815, 13184 
+CP, next, all, 137, 10819, 12699 
+CP, next, all, 168, 11567, 12254 
+CP, next, all, 210, 12579 
+CP, next, all, 212, 12702, 12882 
+CP, next, all, 215, 12883 
+CP, next, all, 230, 9309 
+CP, next, all, 231, 9310 
+CP, next, all, 232, 9311 
+CP, next, all, 264, 9833 
+CP, next, all, 265, 9834 
+CP, next, all, 332, 10375 
+CP, next, all, 333, 10376 
+CP, next, all, 363, 10825 
+CP, next, all, 364, 10826 
+CP, next, all, 365, 10827 
+CP, next, all, 366, 10828 
+CP, next, all, 417, 11572 
+CP, next, all, 458, 11977 
+CP, next, all, 489, 12584 
+CP, next, all, 493, 12705 
+CP, next, all, 494, 12706 
+CP, next, all, 505, 12890 
+CP, next, all, 518, 13137 
+CP, next, all, 529, 13194 
+CP, next, all, 1395, 9356 
+CP, next, all, 1439, 9379 
+CP, next, all, 1483, 9407 
+CP, next, all, 1513, 9425 
+CP, next, all, 1517, 9427 
+CP, next, all, 1523, 9432 
+CP, next, all, 1535, 9440 
+CP, next, all, 1540, 9444 
+CP, next, all, 1976, 9864 
+CP, next, all, 2000, 9874 
+CP, next, all, 2105, 9913 
+CP, next, all, 2147, 9937 
+CP, next, all, 2159, 9945 
+CP, next, all, 2163, 9948 
+CP, next, all, 2170, 9954 
+CP, next, all, 3313, 10467 
+CP, next, all, 3334, 10474 
+CP, next, all, 3340, 10476 
+CP, next, all, 3380, 10485 
+CP, next, all, 3900, 10894 
+CP, next, all, 3936, 10907 
+CP, next, all, 4006, 10926 
+CP, next, all, 4067, 10951 
+CP, next, all, 4081, 10960 
+CP, next, all, 4104, 10974 
+CP, next, all, 4109, 10978 
+CP, next, all, 4112, 10980 
+CP, next, all, 4148, 11011 
+CP, next, all, 4155, 11015 
+CP, next, all, 5235, 11596 
+CP, next, all, 5246, 11598 
+CP, next, all, 5257, 11603 
+CP, next, all, 6357, 11989 
+CP, next, all, 6390, 11999 
+CP, next, all, 6392, 12001 
+CP, next, all, 6721, 12270 
+CP, next, all, 7235, 12602 
+CP, next, all, 7240, 12606 
+CP, next, all, 7531, 12734 
+CP, next, all, 7533, 12735 
+CP, next, all, 7547, 12738 
+CP, next, all, 7551, 12740 
+CP, next, all, 7916, 12939 
+CP, next, all, 7919, 12942 
+CP, next, all, 8569, 13157 
+CP, next, all, 8586, 13165 
+CP, next, all, 8975, 13241 
+CP, next, all, 8983, 13242 
+CP, next, all, 43, 9734, 11347 
+CP, next, all, 44, 9735, 11903 
+CP, next, all, 66, 9960, 12610 
+CP, next, all, 69, 9963, 12109 
+CP, next, all, 70, 9964, 12110 
+CP, next, all, 98, 10363, 11349 
+CP, next, all, 100, 10365, 12874 
+CP, next, all, 159, 11352, 12010 
+CP, next, all, 184, 11911, 12011 
+CP, next, all, 185, 12012, 12961 
+CP, next, all, 186, 12013, 12613 
+CP, next, all, 189, 12016, 12616 
+CP, next, all, 191, 12114, 12618 
+CP, next, all, 193, 12116, 12876 
+CP, next, all, 195, 12118, 12878 
+CP, next, all, 196, 12119, 12445 
+CP, next, all, 255, 9742 
+CP, next, all, 256, 9743 
+CP, next, all, 282, 9976 
+CP, next, all, 283, 9977 
+CP, next, all, 284, 9978 
+CP, next, all, 285, 9979 
+CP, next, all, 322, 10372 
+CP, next, all, 328, 10373 
+CP, next, all, 329, 10374 
+CP, next, all, 459, 12022 
+CP, next, all, 460, 12023 
+CP, next, all, 464, 12126 
+CP, next, all, 465, 12127 
+CP, next, all, 466, 12128 
+CP, next, all, 467, 12129 
+CP, next, all, 468, 12130 
+CP, next, all, 479, 12451 
+CP, next, all, 491, 12629 
+CP, next, all, 492, 12630 
+CP, next, all, 502, 12888 
+CP, next, all, 504, 12889 
+CP, next, all, 506, 12967 
+CP, next, all, 1871, 9760 
+CP, next, all, 1878, 9763 
+CP, next, all, 1954, 9806 
+CP, next, all, 1956, 9807 
+CP, next, all, 1960, 9811 
+CP, next, all, 2413, 10082 
+CP, next, all, 2670, 10151 
+CP, next, all, 2713, 10172 
+CP, next, all, 2750, 10184 
+CP, next, all, 2804, 10209 
+CP, next, all, 2839, 10225 
+CP, next, all, 2840, 10226 
+CP, next, all, 2844, 10228 
+CP, next, all, 3172, 10439 
+CP, next, all, 3234, 10445 
+CP, next, all, 3280, 10460 
+CP, next, all, 3369, 10481 
+CP, next, all, 3370, 10482 
+CP, next, all, 3378, 10484 
+CP, next, all, 4890, 11366 
+CP, next, all, 4933, 11375 
+CP, next, all, 6304, 11939 
+CP, next, all, 6338, 11957 
+CP, next, all, 6421, 12056 
+CP, next, all, 6437, 12064 
+CP, next, all, 6480, 12079 
+CP, next, all, 6484, 12081 
+CP, next, all, 6507, 12099 
+CP, next, all, 6519, 12107 
+CP, next, all, 6526, 12157 
+CP, next, all, 6561, 12171 
+CP, next, all, 6600, 12193 
+CP, next, all, 6612, 12199 
+CP, next, all, 6618, 12201 
+CP, next, all, 6638, 12210 
+CP, next, all, 6647, 12213 
+CP, next, all, 6688, 12239 
+CP, next, all, 6689, 12240 
+CP, next, all, 6696, 12244 
+CP, next, all, 6974, 12486 
+CP, next, all, 6982, 12492 
+CP, next, all, 7314, 12655 
+CP, next, all, 7348, 12663 
+CP, next, all, 7393, 12671 
+CP, next, all, 7421, 12690 
+CP, next, all, 7846, 12916 
+CP, next, all, 7856, 12918 
+CP, next, all, 7908, 12934 
+CP, next, all, 7910, 12935 
+CP, next, all, 8087, 12985 
+CP, next, all, 8102, 12990 
+CP, next, all, 9, 9296, 11148 
+CP, next, all, 10, 9297, 11149 
+CP, next, all, 112, 10504, 11157 
+CP, next, all, 113, 10505, 11019 
+CP, next, all, 148, 11028, 11162 
+CP, next, all, 152, 11166, 11801 
+CP, next, all, 154, 11168, 11625 
+CP, next, all, 155, 11169, 11626 
+CP, next, all, 180, 11809, 12578 
+CP, next, all, 211, 12580, 13131 
+CP, next, all, 227, 9306 
+CP, next, all, 228, 9307 
+CP, next, all, 229, 9308 
+CP, next, all, 343, 10508 
+CP, next, all, 344, 10509 
+CP, next, all, 345, 10510 
+CP, next, all, 378, 11033 
+CP, next, all, 379, 11034 
+CP, next, all, 391, 11180 
+CP, next, all, 392, 11181 
+CP, next, all, 393, 11182 
+CP, next, all, 394, 11183 
+CP, next, all, 395, 11184 
+CP, next, all, 428, 11646 
+CP, next, all, 429, 11647 
+CP, next, all, 443, 11815 
+CP, next, all, 487, 12583 
+CP, next, all, 515, 13136 
+CP, next, all, 1446, 9381 
+CP, next, all, 1465, 9392 
+CP, next, all, 1478, 9403 
+CP, next, all, 1493, 9412 
+CP, next, all, 1495, 9414 
+CP, next, all, 1508, 9421 
+CP, next, all, 3506, 10569 
+CP, next, all, 3509, 10572 
+CP, next, all, 3544, 10592 
+CP, next, all, 3545, 10593 
+CP, next, all, 3551, 10598 
+CP, next, all, 3553, 10600 
+CP, next, all, 4235, 11077 
+CP, next, all, 4327, 11103 
+CP, next, all, 4447, 11133 
+CP, next, all, 4465, 11141 
+CP, next, all, 4602, 11251 
+CP, next, all, 4666, 11269 
+CP, next, all, 4677, 11273 
+CP, next, all, 4783, 11294 
+CP, next, all, 4819, 11317 
+CP, next, all, 4844, 11325 
+CP, next, all, 4854, 11330 
+CP, next, all, 4860, 11336 
+CP, next, all, 4871, 11343 
+CP, next, all, 4872, 11344 
+CP, next, all, 5543, 11702 
+CP, next, all, 5811, 11736 
+CP, next, all, 5826, 11739 
+CP, next, all, 6034, 11791 
+CP, next, all, 6209, 11890 
+CP, next, all, 6226, 11898 
+CP, next, all, 6227, 11899 
+CP, next, all, 7160, 12592 
+CP, next, all, 7170, 12596 
+CP, next, all, 7264, 12608 
+CP, next, all, 8583, 13163 
+CP, next, all, 8595, 13170 

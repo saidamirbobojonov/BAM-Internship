@@ -1,0 +1,311 @@
+/batch
+/config,noeldb,1     ! force off writing results to database
+*get,_wallstrt,active,,time,wall
+/units,MPA
+/nopr
+/wb,file,start              !  signify a WB generated input file
+/prep7
+! Turn off shape checking because checks already performed inside WB mesher.
+! See help system for more information.
+SHPP,OFF,,NOWARN
+PRED,OFF
+/nolist
+etcon,set             ! allow ANSYS to choose best KEYOP's for 180x elements
+
+/com,**********************************************************
+/com,*********** Nodes for the whole assembly *****************
+/input,../Ansys_Input_Files/Node_Def,dat
+
+/com,**********************************************************
+/com,*********** Nodes for all Remote Points ******************
+!/input,../Ansys_Input_Files/Pilot_Node_Def,dat
+/com,**********************************************************
+/com,*********** Element Definition ***************************
+/wb,elem,start            !  set before creation of elements
+/input,../Ansys_Input_Files/Elem_Def,dat
+/wb,elem,end               !  done creating elements
+
+/com,**************************************************************
+/com,*********** Element Set Definition    ************************
+/input,../Ansys_Input_Files/Set_Def,dat
+
+/com,**************************************************************
+/com,*********** Send User Defined Coordinate System(s) ***********
+/com,*********** Send Imported Nodal Orientation **********
+/com, Sending Imported Nodal Orientation Object: 1
+/input,../Ansys_Input_Files/_Elem_Orient_,dat
+CSYS,0
+
+toffst,273.15,  ! Temperature offset from absolute zero
+/com,*********** Set Reference Temperature ***********
+tref,650.
+/wb,mat,start              !  starting to send materials
+/com,*********** Send Materials ***********
+Temperature = 'TEMP' ! Temperature
+MP,DENS,1,7.85e-09,	! tonne mm^-3
+MP,ALPX,1,1.2e-05,	! C^-1
+MP,C,1,434000000,	! mm^2 s^-2 C^-1
+MP,KXX,1,60.5,	! tonne mm s^-3 C^-1
+MP,RSVX,1,0.00017,	! ohm mm
+MP,EX,1,200000,	! tonne s^-2 mm^-1
+MP,NUXY,1,0.3,
+MP,MURX,1,10000,
+
+/wb,mat,end                !  done sending materials
+/com,**************************************************************
+/com,*********** Send User Defined Material ***********************
+! ****** Begin Command Snippet ******
+*dim,matids,,1
+*set,matids(1),1
+*set,matid,1
+*dim,typeids,,1
+*set,typeids(1),53
+matid1 = matid
+/PREP7
+! TB for usermat-material, Material #104: SDGDP
+TB,USER,104            ! use usermat for material #104
+TB,STATE,104 , ,45     ! 45 state-Vars for material #104
+! TBDATA to init Statevars:
+TBDATA,1, 0., 0., 0., 0., 0., 0.  ! init state vars 1 to 6 with 0.
+TBDATA,7, 0., 0., 0., 0., 0., 0.  ! init state vars 7 to 12 with 0.
+TBDATA,13, 0., 0., 0., 0., 0., 0. ! init state vars 13 to 18 with 0.
+TBDATA,19, 0., 0., 0., 0., 0., 0. ! init state vars 19 to 24 with 0.
+TBDATA,25, 0., 0., 0., 0., 0., 0. ! init state vars 25 to 30 with 0.
+TBDATA,31, 0., 0., 0., 0., 0., 0. ! init state vars 31 to 36 with 0.
+TBDATA,37, 0., 0., 0., 0., 0., 0. ! init state vars 37 to 42 with 0.
+TBDATA,43, 0., 0., 0.	
+/GO
+*set, matids, ,
+*set, typeids, ,
+! TB for usermat-material, Material #105: SDGDP2
+TB,USER,105            ! use usermat for material #105
+TB,STATE,105 , ,45     ! 45 state-Vars for material #105
+! TBDATA to init Statevars:
+TBDATA,1, 0., 0., 0., 0., 0., 0.  ! init state vars 1 to 6 with 0.
+TBDATA,7, 0., 0., 0., 0., 0., 0.  ! init state vars 7 to 12 with 0.
+TBDATA,13, 0., 0., 0., 0., 0., 0. ! init state vars 13 to 18 with 0.
+TBDATA,19, 0., 0., 0., 0., 0., 0. ! init state vars 19 to 24 with 0.
+TBDATA,25, 0., 0., 0., 0., 0., 0. ! init state vars 25 to 30 with 0.
+TBDATA,31, 0., 0., 0., 0., 0., 0. ! init state vars 31 to 36 with 0.
+TBDATA,37, 0., 0., 0., 0., 0., 0. ! init state vars 37 to 42 with 0.
+TBDATA,43, 0., 0., 0.	
+/GO
+*set, matids, ,
+*set, typeids, ,											
+! ****** End   Command Snippet ******
+
+! get the diagonal of the bounding box. Needed later for other things
+*get,_xmin,node,,mnloc,x
+*get,_ymin,node,,mnloc,y
+*get,_zmin,node,,mnloc,z
+*get,_xmax,node,,mxloc,x
+*get,_ymax,node,,mxloc,y
+*get,_zmax,node,,mxloc,z
+_ASMDIAG=(_xmax-_xmin)*(_xmax-_xmin)+(_ymax-_ymin)*(_ymax-_ymin)+(_zmax-_zmin)*(_zmax-_zmin)
+_ASMDIAG=SQRT(_ASMDIAG)
+
+/com,*********** Create "Constraint Equations()" ***********
+/com,**************************************************************
+_CE_1_
+_CE_2_
+_CE_3_
+  
+/com,**************************************************************
+/com,*********** Repalce MATID for SDBIPHASE **********************
+/prep7
+esel,s,mat,,1,1224
+emodif,all,mat,104
+
+!esel,s,mat,,xxx,yyy
+!emodif,all,mat,105
+
+ET,1226,INTER204
+Mat,1226
+Type,1226
+KEYO,1226,2,0
+
+TB,CZM,1226,,8,USER             ! use usermat for material #103
+TBDATA,1, 0, 0, 0, 0, 0, 0    ! init state vars 1 to 3 with 0.
+TBDATA,7, 0, 0
+
+/input,../Ansys_Input_Files/Interface_Def,dat
+
+*set,end_time,_end_time_  ! [s]
+*set,time_inter,1.0e1	 ! [s]	
+
+ini_steps = end_time*1.0e2
+max_steps = end_time*1.0e5
+min_steps = end_time*_min_steps_
+
+
+xplus_x   = _sxxp_ 
+xminus_x  = _sxxm_    
+xplus_y   = _sxyp_  
+xminus_y  = _sxym_
+xplus_z   = _sxzp_ 
+xminus_z  = _sxzm_
+
+yplus_x   = _syxp_  
+yminus_x  = _syxm_
+yplus_y   = _syyp_ 
+yminus_y  = _syym_
+yplus_z   = _syzp_  
+yminus_z  = _syzm_
+
+zplus_x   = _szxp_  
+zminus_x  = _szxm_
+zplus_y   = _szyp_  
+zminus_y  = _szym_
+zplus_z   = _szzp_  
+zminus_z  = _szzm_
+
+/input,../Ansys_Input_Files/Load_Def_,dat
+
+/com,*********** Construct Remote Mass Using Remote Attachment ***********
+																	  
+/com,****************************************************************************
+esel,all
+/gst,on,on
+fini
+*get,_numnode,node,0,count
+*get,_numelem,elem,0,count
+*get, _MAXELEMNUM, elem, 0, NUM, MAX
+*get, _MAXNODENUM, node, 0, NUM, MAX
+*get, _MAXELEMTYPE, etyp, 0, NUM, MAX
+*get, _MAXREALCONST, real, 0, NUM, MAX
+/go
+/wb,load,end               !  done creating loads
+*get,_wallbsol,active,,time,wall
+
+
+/com,****************************************************************************
+/com,*************************    SOLUTION       ********************************
+/com,****************************************************************************
+/solu
+
+/com,*************************   USERMAT CALL      ******************************
+USRCAL,usolbeg ! needed for uexternaldb (read SDCHABOX material data file)
+/com,****************************************************************************
+
+antype,0                   ! static analysis
+_thickRatio=0.962          ! Ratio of thick parts in the model
+eqsl,pcg,1e-8,,,,,,1
+cntr,print,1               ! print out contact info and also make no initial contact an error
+cntr,out,yes               ! write contact output to file.cmn due to many contact pairs present
+dmpoption,emat,no          ! Don't combine emat file for DANSYS
+dmpoption,esav,no          ! Don't combine esav file for DANSYS
+nldiag,cont,iter           ! print out contact info each equilibrium iteration
+rescontrol,,none           ! Do not keep any restart files
+
+/com,****************************************************
+/com,******************* SOLVE FOR LS 1 OF 2 ****************
+/com,**** Set Direct FE , Displacements ****
+!d,CORNER_TOP_RIGHT_FRONT,ux,0.
+!d,CORNER_TOP_RIGHT_FRONT,uy,0.
+!d,CORNER_TOP_RIGHT_FRONT,uz,0.
+/com,**** Set Direct FE , Pressures ****
+esel,all
+esel,s,type,,_surface1_
+nsle
+sfe,all,1,pres,1,%_load_xplus_x%
+sfe,all,2,pres,1,%_load_xplus_y%
+sfe,all,3,pres,1,%_load_xplus_z%
+esel,s,type,,_surface2_
+nsle
+sfe,all,1,pres,1,%_load_xminus_x%
+sfe,all,2,pres,1,%_load_xminus_y%
+sfe,all,3,pres,1,%_load_xminus_z%
+esel,s,type,,_surface3_
+nsle
+sfe,all,1,pres,1,%_load_yplus_x%
+sfe,all,2,pres,1,%_load_yplus_y%
+sfe,all,3,pres,1,%_load_yplus_z%
+esel,s,type,,_surface4_
+nsle
+sfe,all,1,pres,1,%_load_yminus_x%
+sfe,all,2,pres,1,%_load_yminus_y%
+sfe,all,3,pres,1,%_load_yminus_z%
+esel,s,type,,_surface5_
+nsle
+sfe,all,1,pres,1,%_load_zplus_x%
+sfe,all,2,pres,1,%_load_zplus_y%
+sfe,all,3,pres,1,%_load_zplus_z%
+esel,s,type,,_surface6_
+nsle
+sfe,all,1,pres,1,%_load_zminus_x%
+sfe,all,2,pres,1,%_load_zminus_y%
+sfe,all,3,pres,1,%_load_zminus_z%
+nsel,all
+esel,all
+
+/nopr
+/gopr
+nsub,ini_steps,max_steps,min_steps
+time,end_time
+outres,erase
+outres,all,none
+outres,nsol,all,
+!outres,rsol,all
+!outres,eangl,all
+!outres,etmp,all
+!outres,veng,all
+!outres,strs,all,
+!outres,epel,all,
+!outres,eppl,all,
+!outres,cont,all,
+cdwrite,db,_name1_,cdb
+! ******************* WB SOLVE COMMAND ***********************
+solve
+/com *************** Write FE CONNECTORS ********************* 
+CEWRITE,file,ce,,INTE
+/com,*********************************************************
+/com,*************** FINISHED SOLVE FOR LS 1 *****************
+/com,*********************************************************
+save,file,db
+*get,_wallasol,active,,time,wall
+/nopr
+*get,_numnode,node,0,count
+*get,_numelem,elem,0,count
+*get, _MAXELEMNUM, elem, 0, NUM, MAX
+*get, _MAXNODENUM, node, 0, NUM, MAX,,,INTERNAL
+*get, _MAXELEMTYPE, etyp, 0, NUM, MAX
+*get, _MAXREALCONST, real, 0, NUM, MAX
+/gopr
+*get,_PCGITER,active,,solu,cgiter
+/post1
+xmlo,ENCODING,ISO-8859-1
+xmlo,parm
+!/xml,parm,xml
+
+fini
+/gopr
+*get,_walldone,active,,time,wall
+_preptime=(_wallbsol-_wallstrt)*3600
+_solvtime=(_wallasol-_wallbsol)*3600
+_posttime=(_walldone-_wallasol)*3600
+_totaltim=(_walldone-_wallstrt)*3600
+*get,_dlbratio,active,0,solu,dlbr
+*get,_combtime,active,0,solu,comb
+/com,--- Number of total nodes = %_numnode%
+/com,--- Number of total elements = %_numelem%
+/com,--- Element load balance ratio = %_dlbratio%
+/com,--- Time to combine distributed files = %_combtime%
+Allsel
+!cdwrite,db,_name1_,cdb
+!cdwrite,db,_name1_,db
+/COPY,file,rst,,_name1_,rst
+
+/post1
+Resume,file,db
+nsel,all
+
+*CFOPEN,_name1_,test,,
+*VWRITE,'Time [s]','U1X-','U2X-','U3X-','U1X+','U2X+','U3X+','U1Y-','U2Y-','U3Y-','U1Y+','U2Y+','U3Y+','U1Z-','U2Z-','U3Z-','U1Z+','U2Z+','U3Z+'
+(A12,A16,A16,A16,A16,A16,A16,A16,A16,A16,A16,A16,A16,A16,A16,A16,A16,A16,A16)
+*CFCLOS
+
+*CFOPEN,_name1_,test,,append
+/input,../Ansys_Input_Files/Post_Def,dat
+*CFCLOS
+
+/wb,file,end               ! done with WB generated input
